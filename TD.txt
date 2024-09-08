@@ -1,0 +1,15 @@
+create table Department (
+Departmentin_name	varchar(50),	
+Department_head_name	varchar(20) NULL,	
+Department_deputy	varchar(20) NULL,	
+Department_staff	varchar(55) null,	
+Department_occupation	varchar(255) NULL,	
+Department_ID	int unsigned primary key Auto_Increment
+);
+
+insert into  Department (Departmentin_name,Department_head_name,Department_deputy,Department_staff,Department_occupation,Department_ID)
+values
+("Busness","Hassan Pras","Alan Smith","5 person","Busy with Business issues",2),
+("Marketing","Hassan Pras1","Alan Smith1","5 person","Busy with some issues",3),
+("Document COntrol","Hassan Pras2","Alan Smith2","5 person","Busy with some issues",4),
+("Administration","Hassan Pras3","Alan Smith3","5 person","Busy with Some issues",5)

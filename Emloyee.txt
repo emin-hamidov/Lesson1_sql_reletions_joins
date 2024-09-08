@@ -1,0 +1,67 @@
+ CREATE TABLE Employee (
+  Employee_ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(20) NOT NULL,
+  Surname VARCHAR(20) NULL,
+  Position VARCHAR(30) NULL,
+  Birth_Data DATE NULL,
+  Department_ID INT unsigned,
+  FOREIGN KEY (Department_ID) REFERENCES Department(Department_ID) ON DELETE CASCADE
+);
+
+insert into  Employee (Name,Surname,Position,Birth_Data,Department_ID)
+values
+("Ramin","Isgandarov","1985-01-03",2),
+("Amid","Elbayov","1982-03-03",2),
+("Asim","Jafarov","1990-01-03",1),
+("Qasim","Imanov","1980-01-03",4),
+("Mirish","Zahid","1985-01-03",3),
+("Mansur","Isgandarov","1985-01-03",4),
+("Raul","Eldarov","1985-01-03",1)
+
+inner join
+
+select E.Name, E.Surname,D.Department_occupation as `dep_occup`,D.Department_deputy from Employee as E
+inner join Department as D
+on E.Department_ID = D.Department_ID
+
+left join
+
+select E.Name, E.Surname,D.Department_occupation as `dep_occup`,D.Department_deputy from Employee as E
+left join Department as D
+on E.Department_ID = D.Department_ID
+
+right join
+
+select E.Name, E.Surname,E.Employee_ID,D.Department_occupation as `dep_occup`,D.Department_deputy, D.Department_ID from Employee as E
+right join Department as D
+on E.Department_ID = D.Department_ID
+
+
+select min(Birth_Data) from Employee
+
+select max(Birth_Data) from Employee
+
+select avg (Birth_Data) from Employee
+
+select count(Birth_Data) from Employee
+
+select sum(Birth_Data) from Employee
+
+
+select Department_ID, sum(Employee_ID) from Employee
+group by Department_ID
+
+select Department_ID, sum(Employee_ID) from Employee
+group by Department_ID
+having Department_ID=1
+
+
+select * from Product as p
+left join ProductImages as i
+on p.id=i.id
+
+union
+
+select * from Product as p
+right join ProductImages as i
+on p.id=i.id
